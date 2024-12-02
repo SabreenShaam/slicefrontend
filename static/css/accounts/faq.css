@@ -1,0 +1,138 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 78px;
+}
+
+footer {
+    height: 40px;
+}
+
+.blue-container .panel {
+    box-shadow: none;
+    margin-left: 0;
+}
+
+.blue-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px;
+    padding-top: 40px;
+}
+
+
+.blue-container .container {
+    background-color: #f4f7f9 !important;
+}
+
+
+footer a {
+    color: #777;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #88c1d8;
+}
+
+footer a:focus {
+    text-decoration: none;
+    color: #88c1d8;
+}
+
+p.condition {
+    text-align: justify;
+}
+
+md-toolbar *, md-toolbar *::after, md-toolbar *::before {
+    background: #88c1d8 none repeat scroll 0 0;
+    box-sizing: border-box;
+}
+
+/*body {*/
+/*font-family: Lato;*/
+/*padding-top: 78px !important;*/
+/*}*/
+
+.faqHeader {
+
+    border-bottom: 1px solid #d7d7d7;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0;
+    padding-bottom: 5px;
+    font-family: "Open Sans", arial, sans-serif;
+
+}
+
+.panel-heading [data-toggle="collapse"]:after {
+    font-family: 'FontAwesome';
+    content: "\f078";
+    float: right;
+    color: #88c1d8;
+    font-size: 20px;
+    line-height: 22px;
+
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+
+     color: #a0a0a0;
+}
+
+.panel-default > .panel-heading {
+    background-color: #f4f7f9;
+    border-color: #88c1d8;
+    color: #88c1d8;
+}
+
+.section-block li {
+    font-family: "Open Sans", arial, sans-serif;
+    color: #494d55;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+
+    font-family: "Open Sans", arial, sans-serif;
+    color: #454444;
+    background-color: #f4f7f9;
+    font-size: 15px;
+
+}
+
+.center-body {
+    font-family: "Open Sans", arial, sans-serif;
+    color: #454444;
+    background-color: #f4f7f9;
+    font-size: 12px;
+
+}
+.callout-danger {
+    background: #f77b6b none repeat scroll 0 0;
+    color: #fff;
+}
+.callout-block {
+    background-clip: padding-box;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    padding: 30px;
+    position: relative;
+}
+.callout-block .icon-holder {
+    color: rgba(0, 0, 0, 0.25);
+    font-size: 30px;
+    left: 30px;
+    position: absolute;
+    top: 30px;
+}
+.callout-block .content {
+    margin-left: 60px;
+}
+.blue-container {
+    margin-bottom: -95px;
+    padding-bottom: 105px;
+}

@@ -1,0 +1,291 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 80px;
+}
+
+footer {
+    height: 40px;
+}
+
+.blue-container .container {
+    background-color: #FFFFFF;
+}
+
+.blue-container .chips-container {
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.blue-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px;
+    /*padding-top: 40px;*/
+}
+
+.center-item {
+    display: table;
+    margin: 0 auto;
+}
+
+.booking-list .heading div {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #b7b7b7;
+}
+
+.booking > .col-sm-3 {
+    padding-bottom: 18px;
+    padding-top: 18px;
+
+}
+
+.table-div tr:nth-child(even) {
+    /*background-color: #CCC;*/
+    background-color: #e0e0e0;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+}
+
+.heading-font-style {
+    font-weight: bold;
+}
+
+.md-chips, md-chips {
+    box-shadow: none !important;
+    font-size: 12px;
+}
+
+md-icon {
+    min-height: 12px;
+    min-width: 12px;
+}
+
+.chips-content {
+    min-height: 50px;
+}
+
+a.btn-sub-navbar {
+    background-color: #fff;
+    border-color: #ccc;
+    border-radius: 5px;
+    color: #383e5a;
+    margin: 15px 5px;
+    padding: 5px 10px;
+    text-transform: none;
+    top: 0;
+    width: inherit;
+}
+
+.sub-navbar > .container > .navbar-nav {
+    padding-top: 0px;
+}
+
+.sub-navbar > .container > .navbar-right > .navbar-nav {
+    padding-top: 0px;
+}
+
+.sub-navbar > .container > .navbar-right > .navbar-nav > li > a {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-container > .panel {
+    box-shadow: none;
+    margin-top: 25px;
+}
+
+.bookings-container {
+    margin-top: 20px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.download_icon {
+    /*border: 2px solid rgba(53, 66, 83, 0.4);*/
+    /*border-radius: 5px;*/
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 50px;
+}
+
+.download-icon {
+    color: #88c1d8;
+    cursor: hand;
+}
+
+.empty-message {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.internal-booking-container {
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 50px;
+}
+
+.external-booking-container {
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 50px;
+}
+
+.rm-focus-outline:focus {
+    outline: none;
+}
+
+.booking-sub-navbar {
+    z-index: 5;
+}
+
+.md-button.md-icon-button {
+    height: auto;
+    width: auto;
+    min-height: 0px;
+    padding: 0px;
+}
+
+.md-datepicker-input {
+    min-width: 80px;
+    padding: 0px;
+    vertical-align: top;
+    max-width: 95px;
+}
+
+.md-datepicker-input-container {
+    border-bottom-width: 0px;
+}
+
+.md-datepicker-button {
+    vertical-align: top;
+}
+
+.md-datepicker-input-container {
+    outline: none;
+    border: 0;
+}
+
+md-datepicker-input {
+    width: 20px;
+}
+
+.md-datepicker-input-container {
+    border-bottom: medium none;
+    margin-left: 6px !important;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.refresh-icon {
+    padding-left: 35px;
+}
+
+.center-element {
+    margin: auto;
+    width: 0%;
+    padding: 10px;
+}
+
+md-slider-container > *:first-child:not(md-slider) {
+    margin-right: -1px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+md-slider .md-slider-wrapper {
+    height: 100%;
+    outline: medium none;
+    width: 75%;
+}
+
+md-slider-container > *:last-child:not(md-slider) {
+    margin-left: -20px;
+    margin-top: 5px;
+    padding-right: 5px;
+}
+
+md-slider.md-default-theme.md-min .md-thumb::after, md-slider.md-min .md-thumb::after {
+    background-color: rgb(68, 138, 255);
+    border-color: rgb(68, 138, 255);
+}
+
+.input-group-btn {
+    border: 1px solid #ccc !important;
+    border-radius: 50px !important;
+}
+
+.inout-label {
+    font-size: 15px;
+    margin-top: -4px;
+}
+
+md-switch.md-default-theme .md-bar, md-switch .md-bar {
+    background-color: #88c1d8;
+}
+
+md-switch.md-checked .md-bar {
+    background-color: #88c1d8;
+}
+
+md-switch.md-checked .md-thumb {
+    background-color: #337ab7;
+}
+
+md-switch.md-default-theme .md-thumb, md-switch .md-thumb {
+    background-color: #337ab7;
+}
+
+md-switch {
+    -moz-user-select: none;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    line-height: 28px;
+    margin-bottom: 0px;
+    margin-left: inherit;
+    margin-right: 16px;
+    margin-top: 16px;
+    outline: medium none;
+    white-space: nowrap;
+}
+
+.md-datepicker-calendar-pane {
+    position: fixed !important;
+    top: 128px !important;
+}
+
+.sub-navbar {
+    top: 78px !important;
+}
+
+.md-datepicker-input-mask {
+    display: none;
+}

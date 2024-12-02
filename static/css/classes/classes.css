@@ -1,0 +1,105 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Lato;
+    padding-top: 78px;
+}
+
+.blue-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px;
+    padding-top: 40px;
+}
+
+.md-datepicker-input {
+    pointer-events: none;
+    width: 50px;
+    padding-top: 5px;
+}
+
+.md-datepicker-input-container {
+    width: 60px;
+    margin-left: 6px !important;
+    border-bottom: none;
+    vertical-align: middle;
+}
+
+.center-element {
+    margin: auto;
+    width: 0%;
+    padding: 10px;
+}
+
+.end-time {
+    color: #b1b1b1
+}
+
+.md-datepicker-calendar-pane {
+    position: fixed !important;
+    top: 128px !important;
+}
+
+.sub-navbar {
+    top: 78px !important;
+}
+
+.input-group-btn {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+}
+
+.md-button.md-icon-button {
+    padding: 0px;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+}
+
+.btn-arrow {
+    border: none;
+    border-left: solid 1px #ccc;
+    margin-bottom: 1px;
+}
+
+@-moz-document url-prefix() {
+    .md-button.md-icon-button {
+        margin-top: -10px;
+    }
+
+    .md-datepicker-input {
+        padding-top: -5px;
+    }
+
+    .md-datepicker-input-container {
+        vertical-align: baseline;
+    }
+
+    .btn-arrow {
+        margin-bottom: 0px;
+    }
+}
+
+.sub-heading {
+    padding-top: 0px;
+}
+
+md-datepicker {
+    padding-top: 10px;
+}
+
+.date-field {
+    padding: 0px;
+    padding-top: 16px;
+}
+
+.sub-navbar + div {
+    padding-top: 0px;
+}
+
+#class_empty_div {
+    text-align: center;
+}

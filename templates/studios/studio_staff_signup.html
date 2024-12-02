@@ -1,0 +1,42 @@
+{% extends 'common/base.html' %}
+{% load widget_tweaks %}
+
+{% block navBrandHref %}
+    {% url 'studio_home' %}
+{% endblock navBrandHref %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+                            {% if message.tags == 'error' %}
+                                <div class="alert alert-danger text-center">{{ message }}</div>
+                            {% endif %}
+
+                            {% if message.tags != 'error' %}
+                                <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
+    {% endif %}
+    <div class="container signup-container">
+        <div class="panel panel-default">
+            <div class="panel-heading weight-600 text-uppercase">Sign Up</div>
+            <div class="panel-body">
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>
+                {% endif %}
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {{ form.email.errors }}
+                    {% render_field form.email class+="form-control margin-bottom-10" placeholder="Email" %}
+
+                    {{ form.password.errors }}
+                    {% render_field form.password class+="form-control margin-bottom-10" placeholder="Password" %}
+
+                    {{ form.studios.errors }}
+                    {% render_field form.studios class+="form-control margin-bottom-10" %}
+                    <button type="submit" class="btn btn-primary btn-block invert-button weight-600 text-uppercase">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

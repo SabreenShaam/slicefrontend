@@ -1,0 +1,285 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block navbar %}
+    <ul class="nav navbar-nav navbar-right">
+        {% if not request.user.is_authenticated %}
+            <li><a class="weight-600 text-uppercase" href="#" data-toggle="modal" data-target="#staff-login-modal">Log
+                In</a>
+            </li>
+        {% else %}
+            <li>
+                <a class="weight-600 text-uppercase" href="{% url 'studio_classes' %}">
+                    Classes
+                </a>
+            </li>
+            {#            <li><a class="weight-600 text-uppercase" href="{% url 'studio_bookings' %}">Bookings</a></li>#}
+            <li><a class="weight-600 text-uppercase" href="{% url 'studio_staff_logout' %}">Logout</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock navbar %}
+
+{% block content %}
+    <!-- Modal -->
+    <div class="modal fade" id="staff-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        {% include 'accounts/login.html' %}
+    </div>
+    <div class="header text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-2"></div>
+                <div class="header-text col-lg-6 col-sm-8 animated slideInUp">
+                    <h1>Offer your members a more varied workout</h1>
+
+                    <h2>Create your own packages</h2>
+
+                    <h3>Remain in control</h3>
+                </div>
+                <div class="col-lg-3 col-sm-2"></div>
+            </div>
+            <div class="row">
+                {#            <img class="header-logo" src="/static/images/logo-0.png">#}
+            </div>
+        </div>
+    </div>
+    <div class="space-70"></div>
+    <div class="space-70"></div>
+    <div class="studio-usp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-sm-1"></div>
+                <div class="col-lg-5 col-sm-5">
+                    <div class="studio-usp-box margin-bottom-40">
+                        <div class="icon-left">
+                            <i class="fa fa-random"></i>
+                        </div>
+                        <div class="text-content">
+                            <h3>Flexibility</h3>
+
+                            <p>Create your own packages tailored to meet the needs of both you and your clients. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-sm-5">
+                    <div class="studio-usp-box margin-bottom-40">
+                        <div class="icon-left">
+                            <i class="fa fa-sliders"></i>
+                        </div>
+                        <div class="text-content">
+                            <h3>Control</h3>
+
+                            <p>Control your own variables including pricing, the other studios that clients can go to
+                                and how many times they can go.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-sm-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-sm-1"></div>
+                <div class="col-lg-5 col-sm-5">
+                    <div class="studio-usp-box margin-bottom-40">
+                        <div class="icon-left">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="text-content">
+                            <h3>Acquisition and Retention</h3>
+
+                            <p>Acquire new clients and retain / up-sell current clients by offering unique and
+                                attractive packs that you create and control.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-sm-5">
+                    <div class="studio-usp-box margin-bottom-40">
+                        <div class="icon-left">
+                            <i class="fa fa-shopping-basket"></i>
+                        </div>
+                        <div class="text-content">
+                            <h3>Trial</h3>
+
+                            <p>Create pack(s) to allow clients to try before they buy!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+    <div class="space-70"></div>
+    <div class="partner-studios">
+        <div class="space-70"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <div class="center-title">
+                        <h2 style="color: #FFFFFF">Participating Studios</h2>
+                    </div>
+                </div>
+            </div>
+            {#            <div class="row">#}
+            {#                <div class="col-sm-3">#}
+            {#                    <img src="/static/images/white-logos/">#}
+            {#                </div>#}
+            {#                <div class="col-sm-3">#}
+            {#                    <img src="/static/images/white-logos/">#}
+            {#                </div>#}
+            {#                <div class="col-sm-3">#}
+            {##}
+            {#                </div>#}
+            {#                <div class="col-sm-3">#}
+            {##}
+            {#                </div>#}
+            {#            </div>#}
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/AP-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/BP-white-logo-new.png">
+                </div>
+{#                <div class="col-sm-3">#}
+{#                    <img src="/static/images/white-logos/evolve-white-logo-new.png">#}
+{#                </div>#}
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/PS-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/TZ-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/VP-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/PHIIT-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/SUF-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/HSY-white-logo-new.png">
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/images/white-logos/HYW-white-logo-new.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+{#        <div class="testimonials">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-sm-8 col-sm-offset-2 text-center">#}
+{#                        <div class="center-title">#}
+{#                            <span class="center-line"></span>#}
+{##}
+{#                            <p>What they say?</p>#}
+{##}
+{#                            <h3>Testimonials</h3>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="row">#}
+{#                    <div class="col-sm-8 col-sm-offset-2 text-center">#}
+{#                        <div class="flexslider">#}
+{#                            <ul class="slides">#}
+{#                                <li>#}
+{#                                    <img alt="" src="/static/images/customer-1.jpg" draggable="false">#}
+{##}
+{#                                    <p>#}
+{#                                        <i class="ion-quote"></i>#}
+{#                                        It is a long established fact that a reader will be distracted by the readable#}
+{#                                        content of a page when looking at its layout. The point of using Lorem Ipsum is that#}
+{#                                        it has a more-or-less normal distribution of letters.#}
+{#                                    </p>#}
+{#                                    <h4 class="test-author">#}
+{#                                        Rick man -#}
+{#                                        <em>rock inc</em>#}
+{#                                    </h4>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <img alt="" src="/static/images/customer-2.jpg" draggable="false">#}
+{##}
+{#                                    <p>#}
+{#                                        <i class="ion-quote"></i>#}
+{#                                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their#}
+{#                                        default model text, and a search for 'lorem ipsum' will uncover many web sites still#}
+{#                                        in their infancy. Various versions have evolved over the years#}
+{#                                    </p>#}
+{#                                    <h4 class="test-author">#}
+{#                                        Jellia -#}
+{#                                        <em>Founder of tinka inc</em>#}
+{#                                    </h4>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <img alt="" src="/static/images/customer-3.jpg" draggable="false">#}
+{##}
+{#                                    <p>#}
+{#                                        <i class="ion-quote"></i>#}
+{#                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a#}
+{#                                        piece of classical Latin literature from 45 BC, making it over 2000 years old.#}
+{#                                        Richard McClintock, a Latin professor.#}
+{#                                    </p>#}
+{#                                    <h4 class="test-author">#}
+{#                                        Smith -#}
+{#                                        <em>Ceo, company inc.</em>#}
+{#                                    </h4>#}
+{#                                </li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+    <div class="space-70"></div>
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center center-title">
+                    <h2 class="section-heading"> Let's Get In Touch</h2>
+                    <span class="center-line"></span>
+{#                    <p>Ready to integrate with us? That's great! Give us a call or send us an email and we will get back#}
+{#                        to you as soon as possible!</p>#}
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x"></i>
+                    <p>020-7186-6020</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x"></i>
+                    <p>
+                        <a href="mailto:hello@fitopia.co.uk">hello@fitopia.co.uk</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space-70"></div>
+{% endblock content %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="copyright text-muted small">© 2016 Fitopia London</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock footer %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/common/ajax-setup.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/accounts/login.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/home/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/jquery.flexslider-min.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/flexslider.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/index/index.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/common/animate.css' %}" type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+{% endblock script %}

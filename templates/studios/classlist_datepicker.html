@@ -1,0 +1,16 @@
+{% load static %}
+
+<div class="input-group">
+    <span>
+    </span>
+   <span class="input-group-btn ">
+       <md-datepicker ng-model="date" ng-change="onDateChange()" md-placeholder="Select date"
+                      format="YYYY-MM-DD"             md-hide-icons="triangle"></md-datepicker>
+       <button ng-click="GetPrevClass()" class="btn btn-default btn-arrow" type="button"><b><</b></button>
+       <button ng-click="GetNextClass()" class="btn btn-default btn-arrow" type="button"><b>></b></button>
+   </span>
+</div>
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/classes/classlist_datepicker.js' %}"></script>
+{% endblock script %}

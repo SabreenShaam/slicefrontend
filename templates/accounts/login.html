@@ -1,0 +1,29 @@
+{% load widget_tweaks %}
+
+<div class="modal-dialog modal-sm" ng-controller="loginCtrl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Log In</h4>
+        </div>
+        <div class="modal-body">
+            <form id="staff-login-form" method="post">
+                <div id="login-message"></div>
+                {% csrf_token %}
+                <input ng-model="username" id="staff-login-email" type="text" name="email" class="form-control"
+                       placeholder="Email">
+
+                <input ng-model="password" id="staff-login-password" type="password" name="password"
+                       class="form-control margin-top-10" placeholder="Password">
+
+                {#                {% render_field form.studios class+="form-control margin-top-10" %}#}
+
+                <button type="submit" class="btn btn-primary btn-block invert-button modal-btn margin-top-10"
+                        ng-click="submit()">Login
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+

@@ -1,0 +1,86 @@
+/*html, body {*/
+    /*height: 100%;*/
+/*}*/
+
+/*body {*/
+    /*padding-top: 78px;*/
+/*}*/
+
+/*footer {*/
+    /*height: 40px;*/
+/*}*/
+
+/*.blue-container .container {*/
+    /*background-color: #FFFFFF;*/
+/*}*/
+
+/*.blue-container .panel {*/
+    /*box-shadow: none;*/
+    /*margin-left: 0;*/
+/*}*/
+
+/*@media (min-width: 768px) {*/
+    /*.blue-container .panel {*/
+        /*margin-left: 15px;*/
+    /*}*/
+/*}*/
+
+/*@media (min-width: 992px) {*/
+    /*.blue-container .panel {*/
+        /*margin-left: 50px;*/
+    /*}*/
+/*}*/
+
+/*.blue-container {*/
+    /*min-height: 100%;*/
+    /*height: auto !important;*/
+    /*height: 100%;*/
+    /*margin: 0 auto -40px;*/
+    /*padding-top: 40px;*/
+/*}*/
+
+/*.center-item {*/
+    /*display: table;*/
+    /*margin: 0 auto;*/
+/*}*/
+
+/*.studio-access-list .heading div {*/
+    /*padding-top: 8px;*/
+    /*padding-bottom: 8px;*/
+    /*background-color: #b7b7b7;*/
+/*}*/
+
+md-checkbox {
+    margin-bottom: 0;
+    padding-bottom: 8.5397px;
+    padding-top: 8px;
+}
+
+.access-item > .col-sm-3 {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.access-item:nth-child(odd) > div {
+    /*background-color: #CCC;*/
+    background-color: #e0e0e0;
+}
+
+/*.panel-heading {*/
+    /*padding: 10px 15px;*/
+/*}*/
+
+/*.passport_item {*/
+    /*padding: 0px 5px;*/
+/*}*/
+/*.studio_item {*/
+    /*padding: 5px 20px*/
+/*}*/
+
+/*.icon-div {*/
+    /*float: right;*/
+    /*padding-right: 850px;*/
+/*}*/
+/*.header-icon {*/
+    /*padding: 10px 4px 5px;*/
+/*}*/

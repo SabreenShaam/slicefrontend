@@ -1,0 +1,65 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="panel">
+    <div class="panel-heading">
+        <div>
+            <h4>Search</h4>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" role="form">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-3">
+                        <md-input-container>
+                            <label>Email</label>
+                            <input ng-model="useremail">
+                        </md-input-container>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <md-input-container>
+                            <label>First Name</label>
+                            <input ng-model="firstname">
+                        </md-input-container>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <md-input-container>
+                            <label>Last Name</label>
+                            <input ng-model="lastname">
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-3">
+                        <md-select placeholder="Select Studio" ng-model="homeselected"
+                                   style="min-width: 200px;">
+                            <md-option><em>All</em></md-option>
+                            <md-option ng-value="item" ng-repeat="item in studios">
+                                [[item.name]]
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-3">
+                        <button ng-click="submit()" type="submit" class="btn btn-primary"><span
+                                class="glyphicon glyphicon-search"
+                                aria-hidden="true"></span> Search
+                        </button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'app/studios/user-search-list.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/accounts/user-search-list.css' %}" type='text/css'>
+{% endblock script %}

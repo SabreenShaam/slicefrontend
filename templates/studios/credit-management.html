@@ -1,0 +1,215 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block navBrandHref %}
+    {% if not request.user.is_authenticated %}
+        {% url 'studio_staff_login' %}
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        {% url 'studio_classes' %}
+    {% endif %}
+{% endblock navBrandHref %}
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ studio }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+    <div id="message-alert">
+    </div>
+    <div class="blue-container" ng-controller="ExternalCreditListCtrl">
+        <div class="alert alert-info alert-dismissible" role="alert" style="text-align: center">
+            <div class="container">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <strong>Please</strong> confirm the exact name (including correct letter case (upper or lower)
+                and spacing) of any new pricing option to hello@fitopia.co.uk in order to integrate the pricing option
+                and therefore appear in this dashboard.
+            </div>
+        </div>
+        <div>
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>
+            {% endif %}
+        </div>
+        <div class="container text-muted" style="text-align: center" ng-hide="services">
+            <h4>No pricing options found!</h4>
+        </div>
+        <div class="container service-list-container">
+            <div class="row user" ng-repeat="item in services" ng-cloak>
+                <div ng-controller="ExternalCreditCtrl">
+                    <div class="panel panel-class ">
+                        <div class="row panel-heading">
+                            <div class="col-service-grid">
+                                <p class="service-header">Pricing Option</p>
+
+                                <p class="service-option-name">[[ item.name ]]</p>
+                            </div>
+                            <div class="col-service-ticked-grid">
+                                <p class="passport-header">Passport</p>
+
+                                <div id=passport_[[ item.id ]]>
+                                    <div class="inset">
+                                        <md-switch ng-model="on_off_switch" aria-label="Service option Switch"
+                                                   ng-init="init([[ item.state ]])"
+                                                   ng-change="onChange([[ item.id ]])">
+                                        </md-switch>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-external-credits">
+                                <p class="teacher-name">External Credits</p>
+
+                                <div class="btn-group">
+                                    <input type='button' value='-' ng-click="CreditDecrement([[item.id]])"
+                                           class='qtyminus'/>
+                                    <input id=qty_service[[item.id]] ng-modal=qty_service type='text'
+                                           name='quantity' value=[[item.count]] class='qty'/>
+                                    <input type='button' value='+' ng-click="CreditIncrement([[item.id]])"
+                                           class='qtyplus'/>
+                                </div>
+                            </div>
+                            <div class="col-external-credits">
+                                <p class="teacher-name">Max Per Studio</p>
+
+                                <div class="btn-group">
+                                    <input type='button' value='-' ng-click="MaxDecrement([[item.id]])"
+                                           class='qtyminus'/>
+                                    <input id=qty_max_per_service[[item.id]] ng-modal=qty_max_per_service
+                                           type='text'
+                                           name='quantity' value=[[item.max_per_studio]] class='qty'/>
+                                    <input type='button' value='+' ng-click="MaxIncrement([[item.id]])"
+                                           class='qtyplus'/>
+                                </div>
+                            </div>
+                            <div class="col-external-credits">
+                                <p class="teacher-name">Permitted Studios</p>
+
+                                <div class="btn-group">
+                                    <i class="fa fa-cog header-icon" style="font-size:24px"
+                                       ng-click="OpenExternalStudioList($event, item.id, item.name)"></i>
+                                </div>
+                            </div>
+                            <div class="col-settings-update-button">
+                                <button ng-click="submit([[item.id]], $event)"
+                                        class='btn btn-default btn-rounded btn-thin btn-update'>
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {#                    <div ng-hide="true">#}
+                    {#                        {% include 'studios/passport-studio-access.html' %}#}
+                    {#                    </div>#}
+                </div>
+
+
+            </div>
+
+        </div>
+        <script type="text/ng-template" id="passport-studio-access.html">
+            <md-dialog aria-label="Terms of Condition">
+                <form ng-cloak>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools" ng-cloak>
+                            <h2>External studios accessible with [[passportName]]</h2>
+                            <span flex></span>
+                        </div>
+                    </md-toolbar>
+
+                    <md-dialog-content>
+                        <div class="panel">
+                            <div class="panel-body studio-access-list">
+                                <div class="row heading" ng-show="passportStudioAccessList.length" ng-cloak>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <span>STUDIO</span>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3">
+                                        <span class="center-item">PRICE (£)</span>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3">
+                                        <span class="center-item">HAS ACCESS</span>
+                                    </div>
+                                </div>
+
+                                <div class="row access-item"
+                                     ng-repeat="passportStudioAccess in passportStudioAccessList" ng-cloak>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <h5>[[passportStudioAccess.studio.name]]</h5>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3">
+                                        <div class="center-item">
+
+                                            <h5>[[passportStudioAccess.studio.price| number:2]]</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3">
+                                        <div class="center-item">
+                                            <md-checkbox
+                                                    ng-change="update([[passportStudioAccess.id]],[[passportStudioAccess.is_accessible]])"
+                                                    ng-model="passportStudioAccess.is_accessible"
+                                                    aria-label="Finished?"></md-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </md-dialog-content>
+
+                    <md-dialog-actions layout="row">
+
+                        <span flex></span>
+                        <md-button ng-click="cancel()">
+                            Done
+                        </md-button>
+                    </md-dialog-actions>
+                </form>
+            </md-dialog>
+        </script>
+    </div>
+{% endblock content %}
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+
+{% endblock footer %}
+
+{% block script %}
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.0.0/angular-material.min.css' %}">
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.0.0/angular-material.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/common/font/MaterialIcons.css' %}">
+    <link rel='stylesheet' href="{% static 'css/change-credits.css' %}" type='text/css'>
+
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'app/credits/service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/credits/creditCtrl.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/resetScreen.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+{% endblock script %}

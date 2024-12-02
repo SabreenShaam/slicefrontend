@@ -1,0 +1,37 @@
+
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -2px;
+}
+
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#search-btn.btn:focus {
+    background-color: #FFFFFF;
+    outline: none;
+}
+
+md-input-container {
+    margin: 0;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.md-button.md-icon-button {
+    border-radius: 50%;
+    height: 40px;
+    line-height: 24px;
+    margin: -8px 0 0 -10px;
+    min-width: 0;
+    padding: 8px;
+    width: 40px;
+}

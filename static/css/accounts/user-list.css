@@ -1,0 +1,115 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 80px;
+}
+
+footer {
+    height: 40px;
+}
+
+.blue-container .container {
+    background-color: #FFFFFF;
+}
+
+.blue-container .chips-container {
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.blue-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px;
+    /*padding-top: 40px;*/
+}
+
+.center-item {
+    display: table;
+    margin: 0 auto;
+}
+
+.user-list .heading div {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #b7b7b7;
+}
+
+.user > .col-sm-3 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+}
+
+.user:nth-child(odd) > div {
+    /*background-color: #CCC;*/
+    background-color: #e0e0e0;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+}
+
+.heading-font-style {
+    font-weight: bold;
+}
+
+.md-chips, md-chips {
+    box-shadow: none !important;
+    font-size: 12px;
+}
+
+md-icon {
+    min-height: 12px;
+    min-width: 12px;
+}
+
+.chips-content {
+    min-height: 50px;
+}
+
+a.btn-sub-navbar {
+    background-color: #fff;
+    border-color: #ccc;
+    border-radius: 5px;
+    color: #383e5a;
+    margin: 15px 5px;
+    padding: 5px 10px;
+    text-transform: none;
+    top: 0;
+    width: inherit;
+}
+
+.sub-navbar > .container > .navbar-nav {
+    padding-top: 0px;
+}
+
+.sub-navbar > .container > .navbar-right > .navbar-nav {
+    padding-top: 0px;
+}
+
+.sub-navbar > .container > .navbar-right > .navbar-nav > li > a {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-container > .panel {
+    box-shadow: none;
+    margin-top: 25px;
+}
+
+.user-container {
+    margin-top: 20px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}

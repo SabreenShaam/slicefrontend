@@ -1,0 +1,117 @@
+{% extends "common/base_navbar.html" %}
+{% load static %}
+{% block navBrandHref %}
+    {% if not request.user.is_authenticated %}
+        {% url 'studio_staff_login' %}
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        {% url 'studio_classes' %}
+    {% endif %}
+{% endblock navBrandHref %}
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ studio }}!</div>
+    {% endif %}
+{% endblock studioname %}
+{% block content %}
+
+    {#    <div class="alert alert-success alert-dismissible" role="alert">#}
+    {#  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+    {#  <strong>Warning!</strong> Better check yourself, you're not looking too good.#}
+    {#</div>#}
+    <div class="blue-container" ng-controller="classListCtrl">
+        <nav class="sub-navbar">
+            <div class="container">
+                <ul class="nav navbar-nav sub-heading pull-left">
+                    <li class="pull-left">
+                        Classes
+                    </li>
+                </ul>
+                <div class="col-lg-4 col-md-4 col-xs-4 class-datepicker" style="float: right;">
+                    <div class="date-field">{% include 'studios/classlist_datepicker.html' %}</div>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="container">
+
+            <h1 class="current-date">
+                <span id="current_date" ng-show="classes.length" ng-cloak>[[ currentDate ]]</span>
+            </h1>
+
+            <div id="class_empty_div" class="text-muted empty-message" ng-hide="classes.length" aria-hidden="false">
+                <h4>No Classes found!</h4>
+            </div>
+            <div ng-show="activated" ng-model="activated" class="center-element">
+                <md-progress-circular ng-disabled="False" md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <div id='classListDiv'>
+                <div class="row access-item" ng-repeat="class in classes" ng-cloak>
+                    <div class="panel panel-class ">
+                        <div class="row panel-heading">
+                            <div class="col-time">
+                                <p class="start-time">[[ class.start_time | removeSeconds ]]</p>
+
+                                <p class="end-time">[[ class.end_time | removeSeconds ]]</p>
+                            </div>
+                            <div class="col-name">
+                                <div class="inline-block-name">
+                                    <p class="class-name">[[ class.name ]]</p>
+
+                                    <p class="teacher-name">[[ class.staff.name ]]</p>
+                                </div>
+                            </div>
+                            <div class="col-actions">
+                                <div class="btn-group pull-right">
+                                    <button id='but_[[class.id]]' type="button"
+                                            ng-click="cancel([[$event]], [[class.id]], [[class.start_date]])"
+                                            ng-disabled="!class.cancellation"
+                                            class="btn btn-default btn-rounded btn-thin btn-cancel">Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+{% endblock footer %}
+
+{% block script %}
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.1.1/angular-material.min.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.1.1/angular-material.min.css' %}">
+
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/classes/service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/classes/classesCtrl.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/filters.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/classes/classes.css' %}" type='text/css'>
+
+{% endblock script %}

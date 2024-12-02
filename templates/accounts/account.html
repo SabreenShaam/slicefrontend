@@ -1,0 +1,212 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block navBrandHref %}
+    {% if not request.user.is_authenticated %}
+        {% url 'studio_staff_login' %}
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        {% url 'studio_classes' %}
+    {% endif %}
+{% endblock navBrandHref %}
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ studio }}!</div>
+    {% endif %}
+{% endblock studioname %}
+{% block content %}
+    <div id="message-bar" class="alert alert-success alert-dismissible" role="alert" ng-cloak>
+
+    </div>
+    <div class="blue-container">
+        <div class="container">
+            <div class="panel panel-class account col-sm-6">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Account</h3>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="panel panel-class bank-details" ng-controller="bankDetailsCtrl">
+                        <div class="panel-heading">
+                            <div>
+                                <h4>Bank details</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="panel-body">
+                            <form name="bankDetailsForm">
+                                <div class="row form-group">
+                                    <div class="col-sm-4">
+                                        <label>Account name:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input class="form-control col-sm-3" placeholder="Type account name"
+                                               id="accountName" name="accountName" ng-model="accountName" required/>
+
+                                        <p class="validation-error"
+                                           ng-show="bankDetailsForm.accountName.$dirty && bankDetailsForm.accountName.$error.required"
+                                           ng-cloak>
+                                            This field is required</p>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-4">
+                                        <label>Account number:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input class="form-control col-sm-3" placeholder="Type account number"
+                                               id="accountNum" name="accountNum" ng-model="accountNum" required/>
+
+                                        <p class="validation-error"
+                                           ng-show="bankDetailsForm.accountNum.$dirty && bankDetailsForm.accountNum.$error.required"
+                                           ng-cloak>
+                                            This field is required</p>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-4">
+                                        <label>Sort code:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input class="form-control col-sm-3" placeholder="Type sort code" id="sortCode"
+                                               name="sortCode" ng-model="sortCode" required/>
+
+                                        <p class="validation-error"
+                                           ng-show="bankDetailsForm.sortCode.$dirty && bankDetailsForm.sortCode.$error.required"
+                                           ng-cloak>
+                                            This field is required</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <button ng-click="submit()" ng-disabled="bankDetailsForm.$invalid"
+                                                class="btn btn-primary btn-block invert-button weight-600 text-uppercase">
+                                            save changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-class change-password">
+                        <div class="panel-heading">
+                            <div>
+                                <h4>Change password</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="panel-body" ng-controller="changePasswordCtrl">
+                            <form name="changePasswordForm">
+                                <div class="row form-group">
+                                    <div class="col-sm-4">
+                                        <label>Password:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" type="password" name="password"
+                                               placeholder="Type new password" ng-model="password" ng-minlength="6"
+                                               ng-maxlength="20"
+                                               ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
+
+                                        <p class="validation-error"
+                                           ng-show="changePasswordForm.password.$dirty && changePasswordForm.password.$error.required">
+                                            Password required</p>
+
+                                        <p class="validation-error"
+                                           ng-show="!changePasswordForm.password.$error.required && (changePasswordForm.password.$error.minlength || changePasswordForm.password.$error.maxlength) && changePasswordForm.password.$dirty">
+                                            Passwords must be between 6 and 20 characters.</p>
+
+                                        <p class="validation-error"
+                                           ng-show="!changePasswordForm.password.$error.required && !changePasswordForm.password.$error.minlength && !changePasswordForm.password.$error.maxlength && changePasswordForm.password.$error.pattern && changePasswordForm.password.$dirty">
+                                            Must contain one lower &amp; uppercase letter, and one non-alpha
+                                            character
+                                            (a number
+                                            or a symbol.)</p>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-4">
+                                        <label>Confirm password:</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" type="password"
+                                               name="confirmPassword"
+                                               placeholder="Type it again" ng-model="confirmPassword"
+                                               password-confirm
+                                               match-target="password" required>
+
+                                        <p class="validation-error"
+                                           ng-show="changePasswordForm.confirmPassword.$dirty && changePasswordForm.confirmPassword.$error.required">
+                                            Password confirm required</p>
+
+                                        <p class="validation-error"
+                                           ng-show="changePasswordForm.confirmPassword.$dirty && changePasswordForm.confirmPassword.$error.match">
+                                            Password confirm doesn't match password</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <button ng-click="submit()" ng-disabled="changePasswordForm.$invalid"
+                                                class="btn btn-primary btn-block invert-button weight-600 text-uppercase">
+                                            change
+                                            password
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+{% endblock footer %}
+
+{% block script %}
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.0.0/angular-material.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/common/font/MaterialIcons.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.1.1/angular-material.min.css' %}">
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/ajax-setup.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/accounts/change-password.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/accounts/accounts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/accounts/change-password.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+{% endblock script %}

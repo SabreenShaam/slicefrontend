@@ -1,0 +1,257 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ studio }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+
+    <div class="blue-container">
+    <div class="container">
+        <div class="panel-group">
+            <div class="faqHeader">General Instructions</div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseOne" style="text-decoration:none;">Restart the app.</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        When something does not seem right, the first thing we recommend a user should to do is to
+                        log out from the app and log back in again.
+                        This often solves a number of issues.
+                    </div>
+                </div>
+            </div>
+            </br>
+            <div class="faqHeader">Most Common Enquires</div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTwo" style="text-decoration:none;">The user cannot log into the app.</a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div align="left"> Potential issues:</div>
+                        <ol type="i">
+                            <li>The user may have used the wrong e-mail. The correct e-mail to log in to the app is
+                                the same email used to login to Mindbody.
+                            </li>
+                            <li>The user may have forgotten their password. The password cannot be reset via Fitopia
+                                (as Fitopia simply verifies the credentials in Mindbody).
+                                The password will need to be reset by the studio or the user can request a password
+                                reset via Mindbody.
+                            </li>
+                            <li> The user may have selected the wrong Home Studio. The correct Home Studio is the
+                                studio that the user has an account with.
+                            </li>
+                        </ol>
+
+
+                        <div class="callout-block callout-danger">
+                            <div class="icon-holder">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="content">
+                                <p> A user may have more than one account at a studio so it’s important
+                                    to
+                                    identify which account they wish to login to and use these login
+                                    credentials.</p>
+
+                                <p> A user may also have accounts at more than one studio so it’s
+                                    important that
+                                    the login credentials, particularly the Home Studio, matches the account they
+                                    wish to
+                                    access.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseThree" style="text-decoration:none;">The user does not see external
+                            classes on the Find screen or
+                            credits in their Wallet</a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ol type="i">
+                            <li>Please encourage the user to log out and log in again.</li>
+                            <li>If the issue persists, the user may have more than one account in your MBO
+                                system.
+                                You will need to merge these accounts and then ask the user to log out of the
+                                app
+                                and log in again (using the correct Mindbody login credentials).
+                            </li>
+                        </ol>
+                        <div class="callout-block callout-danger">
+                            <div class="icon-holder">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="content">
+                                <p> A user may have more than one account at a studio so it’s important to
+                                    identify which account they wish to login to and use these login
+                                    credentials.</p>
+
+                                <p> A user may also have accounts at more than one studio so it’s important
+                                    that
+                                    the login credentials, particularly the Home Studio, matches the account
+                                    they wish
+                                    to
+                                    access.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseFive" style="text-decoration:none;">The user does not see the correct
+                            number of credits in their
+                            Wallet</a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ol type="i">
+                            <li>Please encourage the user to log out and log in again.</li>
+                            <li> Please note that the Wallet shows the remaining credits not the ones that have
+                                already been used e.g.if the user has 5 credits per month and has used 3 then
+                                the
+                                remaining 2 will appear in their Wallet.
+                            </li>
+                        </ol>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseSix" style="text-decoration:none;">The user cannot book classes and
+                            there are still credits in their
+                            Wallet</a>
+                    </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ol type="i">
+                            <li> Please encourage the user to log out and log in again.</li>
+                            <li> If the issue persists, this could be because the user has used their maximum
+                                visits
+                                per studio ‘Max Per Studio’ for a particular studio and is trying to book into
+                                this
+                                studio again. You can check this setting in your Studio Dashboard under
+                                Manage/External Credits/Max Per Studio, then check the Max Per Studio beside the
+                                applicable Pricing Option.
+                            </li>
+                            <li>Please also check the start date of their package as credits will show in their
+                                wallet prior to the start of their package.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseEight" style="text-decoration:none;">In the monthly report a user
+                            appears to have used more credits than
+                            their External Credit allocation. </a>
+                    </h4>
+                </div>
+                <div id="collapseEight" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        This is likely to be due to timing.
+                        The monthly reports are based on a calendar month whereas a users package can begin at
+                        any
+                        time during the month and is therefore a rolling month.
+                        For example, a user may start their package on the 15th January meaning their monthly
+                        cycle
+                        is 15th Jan to 14th Feb, then 15th Feb to 14th March.
+                        If the user uses all of their credits in the second half of their January cycle
+                        (1st-14th
+                        Feb) and all of their credits in the first half of their February cycle (15th-28 Feb)
+                        two
+                        months of credits will fall into calendar month February.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center-body">
+            <center>If you’re still unable to resolve the issue using the above, we’re happy to help.</br>
+                Please contact us: hello@fitopia.co.uk
+            </center>
+
+        </div>
+    </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-muted small text-center">
+                        Contact Us <br>
+                        <i class="fa fa-phone"></i>
+                        020-7186-6020 <br>
+                        <i class="fa fa-envelope-o"></i>
+                        <a href="mailto:hello@fitopia.co.uk">hello@fitopia.co.uk</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+
+{% endblock footer %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/common/ajax-setup.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.0.0/angular-material.min.css' %}">
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.0.0/angular-material.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/accounts/faq.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/accounts/faq.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css' %}" type='text/css'>
+{% endblock script %}

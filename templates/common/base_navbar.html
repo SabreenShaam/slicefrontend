@@ -1,0 +1,75 @@
+{% extends "common/base.html" %}
+{% block navbar %}
+    <ul class="nav navbar-nav navbar-right">
+        {% if  request.user.is_superuser %}
+            <li>
+                <a class="weight-600 text-uppercase" href="{% url 'user-list' %}">
+                    Users
+                </a>
+            </li>
+            <li>
+                <a class="weight-600 text-uppercase" href="{% url 'bookings' %}">
+                    Bookings
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="weight-600 text-uppercase dropdown-toggle" href="#" data-toggle="dropdown">
+                    External <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'studio_pricing' %}">Studio Price</a></li>
+                </ul>
+            </li>
+
+        {% endif %}
+        {% if not request.user.is_superuser %}
+            <li>
+                <a class="weight-600 text-uppercase" href="{% url 'studio_classes' %}">
+                    Classes
+                </a>
+            </li>
+            <li>
+                <a class="weight-600 text-uppercase" href="{% url 'account' %}">
+                    Account
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="weight-600 text-uppercase dropdown-toggle" href="#" data-toggle="dropdown">
+                    Manage <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'manage_external_credits' %}">External Credits</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="weight-600 text-uppercase dropdown-toggle" data-toggle="dropdown">
+                    Report <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                    <li class="dropdown-header">Bookings</li>
+                    <li><a tabindex="-1" href="{% url 'internal_bookings' %}">Internal</a></li>
+
+                    <li><a tabindex="-1" href="{% url 'external_bookings' %}">External</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="weight-600 text-uppercase dropdown-toggle" data-toggle="dropdown">
+                    Support <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+
+                    <li><a tabindex="-1" href="{% url 'user_guide' %}">User Guide</a></li>
+
+                    <li><a tabindex="-1" href="{% url 'faq' %}">FAQS</a></li>
+                </ul>
+            </li>
+        {% endif %}
+
+        <li>
+            <a class="weight-600 text-uppercase" href="{% url 'studio_staff_logout' %}">
+                Logout
+            </a>
+        </li>
+    </ul>
+{% endblock navbar %}

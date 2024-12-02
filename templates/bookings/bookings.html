@@ -1,0 +1,166 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ email }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+    {#    <div ng-controller="columnChipCtrl as ctrl" layout="column" ng-cloak>#}
+    <div class="blue-container" ng-controller="bookingsCtrl as ctrl" ng-cloak>
+        <nav class="sub-navbar sub-navbar-default sub-navbar-thin">
+            <div class="container">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="pull-left">
+                        Bookings
+                    </li>
+                </ul>
+                <div class="navbar-right pull-right">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <md-menu-bar>
+                                <md-menu>
+                                    <a class="btn btn-sub-navbar" ng-click="$mdOpenMenu()">
+                                        <span class="glyphicon glyphicon-plus"></span> Field
+                                    </a>
+                                    <md-menu-content>
+                                        <md-menu-item ng-repeat="column in columnsPool">
+                                            <md-button ng-click="ctrl.addColumn($index)">
+                                                [[column | removeUnderscores]]
+                                            </md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            </md-menu-bar>
+
+                        </li>
+                        <li>
+                            <a id="search-btn" type="button" class="btn btn-sub-navbar" data-toggle="collapse"
+                               data-target="#search-container">
+                                <span class="glyphicon glyphicon-search"></span> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div style="padding-top: 75px"></div>
+        <div class="container chips-container">
+            <md-chips ng-model="ctrl.addedColumns" name="columnName" readonly="ctrl.readonly"
+                      placeholder="Enter a tag" md-removable="ctrl.removable"
+                      md-on-remove="ctrl.removeColumn($chip)">
+                <md-chip-template>
+                    [[$chip | removeUnderscores]]
+                </md-chip-template>
+            </md-chips>
+        </div>
+        <div id="search-container" class="container search-container collapse">
+            {% include "bookings/bookings-search.html" %}
+        </div>
+        <div ng-show="activated" ng-model="activated" class="center-element">
+            <md-progress-circular ng-disabled="False" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div class="container">
+            {#            http://jasonwatmore.com/post/2016/01/31/AngularJS-Pagination-Example-with-Logic-like-Google.aspx#}
+            <div class="bookings-pagination pull-right" ng-hide="ctrl.pager.totalPages == 1">
+                <nav aria-label="Page navigation">
+                    <ul ng-if="ctrl.pager.pages.length" class="pagination pagination-sm">
+                        <li ng-show="ctrl.pager.totalPages > 5" ng-class="{disabled:ctrl.pager.currentPage === 1}">
+                            <a ng-click="ctrl.setPage(1)">
+                                <span>First</span>
+                            </a>
+                        </li>
+                        <li ng-class="{disabled:ctrl.pager.currentPage === 1}">
+                            <a ng-click="ctrl.setPage(ctrl.pager.currentPage - 1)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li ng-repeat="page in ctrl.pager.pages" ng-class="{active:ctrl.pager.currentPage === page}">
+                            <a ng-click="ctrl.setPage(page)">
+                                [[page]]
+                            </a>
+                        </li>
+                        <li ng-class="{disabled:ctrl.pager.currentPage === ctrl.pager.totalPages}">
+                            <a ng-click="ctrl.setPage(ctrl.pager.currentPage + 1)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li ng-show="ctrl.pager.totalPages > 5"
+                            ng-class="{disabled:ctrl.pager.currentPage === ctrl.pager.totalPages}">
+                            <a ng-click="ctrl.setPage(ctrl.pager.totalPages)">
+                                <span>Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="pull-right" style="margin: 27px 5px; font-size: 12px">
+                <span>[[ctrl.pager.startIndex]]  - [[ctrl.pager.endIndex]] of [[ctrl.pager.totalItems]]</span>
+            </div>
+            <div class="table-div">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        {#                    <th ng-repeat="column in ctrl.addedColumns" ng-if="selectColumn(columnName.id)">[[columnName.name]]</th>#}
+                        <th ng-repeat="column in ctrl.addedColumns">[[column| removeUnderscores]]</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="booking in bookings">
+                        <td>[[booking.email]]</td>
+                        <td>[[booking.first_name]]</td>
+                        <td>[[booking.last_name]]</td>
+                        <td ng-repeat="column in ctrl.addedColumns">[[getColumnValue(booking, column)]]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+{% endblock footer %}
+
+{% block script %}
+    <script src="{% static 'js/common/underscore-1.8.3/underscore-min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.1.1/angular-material.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/bookings/bookings.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/bookings/service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/bookings/bookingsCtrl.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.1.1/angular-material.min.css' %}">
+    <link rel='stylesheet' href="{% static 'css/bookings/bookings.css' %}" type='text/css'>
+    <link rel='stylesheet' href="{% static 'css/bookings/bookings-search.css' %}" type='text/css'>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+
+{% endblock script %}

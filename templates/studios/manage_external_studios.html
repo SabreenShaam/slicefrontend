@@ -1,0 +1,101 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ studio }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+    <div id="message-alert">
+    </div>
+    <div class="blue-container">
+        <div class="container" ng-controller="studioAccessListCtrl">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3> Manage External Studios</h3>
+                    </div>
+                </div>
+                <div class="panel-body studio-access-list">
+                    {#                <div class="row">#}
+                    {#                    <div class="col-sm-12">#}
+                    {#                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>#}
+                    {#                    </div>#}
+                    {#                </div>#}
+                    <div class="row heading" ng-show="products.length" ng-cloak>
+                        <div class="col-sm-3 col-xs-8">
+                            <span>STUDIO</span>
+                        </div>
+                        <div class="col-sm-2 col-xs-4">
+                            <span class="center-item">HAS ACCESS</span>
+                        </div>
+                    </div>
+                    {#                        <div class="row" ng-cloak>#}
+                    {#                            <div class="col-sm-3 col-xs-8">#}
+                    {#                            </div>#}
+                    {#                            <div class="col-sm-2 col-xs-4">#}
+                    {#                                <div class="center-item">#}
+                    {#                                    <md-checkbox aria-label="Select All"#}
+                    {#                                                 ng-checked="isChecked()"#}
+                    {#                                                 md-indeterminate="isIndeterminate()"#}
+                    {#                                                 ng-click="toggleAll()">#}
+                    {#                                        <span ng-if="isChecked()">Un-</span>Select All#}
+                    {#                                    </md-checkbox>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    <div class="row access-item" ng-repeat="product in products" ng-cloak>
+                        <div class="col-sm-3 col-xs-8">
+                            [[product.name]]
+                        </div>
+                        <div class="col-sm-2 col-xs-4">
+                            <div class="center-item">
+                                <md-checkbox ng-change="update(product)" ng-model="product.has_access"
+                                             aria-label="Finished?"></md-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+{% endblock footer %}
+
+{% block script %}
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.0.0/angular-material.min.css' %}">
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.0.0/angular-material.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'app/studios/service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/studios/studioCtrl.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/resetScreen.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/studios/manage-external-studios.css' %}" type='text/css'>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+{% endblock script %}

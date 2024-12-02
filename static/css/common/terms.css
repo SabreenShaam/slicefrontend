@@ -1,0 +1,12 @@
+p.condition{
+    text-align: justify;
+}
+
+footer a {
+    color: #777;
+}
+
+md-toolbar *, md-toolbar *::after, md-toolbar *::before {
+    background: #88c1d8 none repeat scroll 0 0;
+    box-sizing: border-box;
+}

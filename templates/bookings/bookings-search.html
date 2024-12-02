@@ -1,0 +1,110 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="panel">
+    <div class="panel-heading">
+        <div>
+            <h4>Search</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div id='search-form'>
+            <form class="form-horizontal" role="form">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-3 margin-bottom-0">
+                        <md-input-container>
+                            <label>First Name</label>
+                            <input ng-model="firstname">
+                        </md-input-container>
+                    </div>
+                    <div class="form-group col-md-3 margin-bottom-0">
+                        <md-input-container>
+                            <label>Last Name</label>
+                            <input ng-model="lastname">
+                        </md-input-container>
+                    </div>
+                    <div class="form-group col-md-3 margin-bottom-0">
+                        <md-input-container>
+                            <label>Email</label>
+                            <input ng-model="useremail">
+                        </md-input-container>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-3">
+                        <md-select placeholder="Home Studio" ng-model="homeselected"
+                                   style="min-width: 200px;">
+                            <md-option><em>All</em></md-option>
+                            <md-option ng-value="item" ng-repeat="item in studios">
+                                [[item.name]]
+                            </md-option>
+                        </md-select>
+
+
+                    </div>
+                    <div class="form-group col-md-3">
+                        <md-select placeholder="External Studio" ng-model="otherselected"
+                                   style="min-width: 200px;">
+                            <md-option><em>All</em></md-option>
+                            <md-option ng-value="item" ng-repeat="item in studios">
+                                [[item.name]]
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-3">
+                        <md-datepicker ng-model="start_date" ng-change="onStartDateChange()"
+                                           md-placeholder="Start date"
+                                            md-hide-icons="triangle"></md-datepicker>
+
+
+                    </div>
+                    <div class="form-group col-md-3">
+                        <md-datepicker ng-model="end_date" ng-change="onEndDateChange()" md-placeholder="End date"
+                                           md-hide-icons="triangle"></md-datepicker>
+                    </div>
+                </div>
+
+                <div class="row form-inline">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div>
+                            <md-checkbox ng-model="iscancelled" aria-label="Cancelled">
+                                Cancelled
+                            </md-checkbox>
+                            <md-checkbox class="pull-right" ng-model="issignedin" aria-label="issignedin">
+                                Sign In
+                            </md-checkbox>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="col-md-1"></div><div class="col-md-1"></div>
+                        <div>
+                            <md-checkbox ng-model="islatecancelled" aria-label="islatecancelled">
+                                Late Cancelled
+                            </md-checkbox>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <button ng-click="submit()" type="submit" class="btn btn-primary pull-right"><span
+                                class="glyphicon glyphicon-search"
+                                aria-hidden="true"></span> Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

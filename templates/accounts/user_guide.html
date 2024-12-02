@@ -1,0 +1,481 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ studio }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+    <div class="blue-container">
+        <div class="container doc-container">
+            {#            <div class="doc-header">#}
+            {#                <img src="{% static 'images/logo.png' %}"#}
+            {#                     style="width: 150px; height: 150px; display: block; margin-left: auto; margin-right: auto;">#}
+            {#                <div class="meta">#}
+            {#                    <i class="fa fa-clock-o"></i>#}
+            {#                    Last updated: Jan 25th, 2016#}
+            {#                    <i class="fa fa-phone"></i>#}
+            {#                    020-7186-6020 <br>#}
+            {#                    <i class="fa fa-envelope-o"></i>#}
+            {#                    <a href="mailto:hello@fitopia.co.uk">hello@fitopia.co.uk</a>#}
+            {#                </div>#}
+            {##}
+            {#            </div>#}
+            {#            <div class="doc-header">#}
+            {#                <h1 class="text-center">Fitopia</h1>#}
+            {#            </div>#}
+            <div class="doc-body">
+                <div class="doc-content">
+                    <div class="content-inner">
+                        <section id="overview-section">
+                            <h2 class="section-title">Overview</h2>
+
+                            <div class="section-block">
+                                <p>
+                                    <strong>There are four key features that can be used by portal staff;</strong>
+                                </p>
+                                <ol>
+                                    <li>
+                                        Cancelling classes
+                                    </li>
+                                    <li>
+                                        Managing external credits
+                                    </li>
+                                    <li>
+                                        Managing external studios
+                                    </li>
+                                    <li>
+                                        Accounts page
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section id="class-section">
+                            <h2 class="section-title">Classes</h2>
+
+                            <div class="section-block">
+                                <p>
+                                    <strong>How do we cancel classes?</strong>
+                                </p>
+                                <ol>
+                                    <li>
+                                        Select ‘CLASSES’ in the top menu
+                                    </li>
+                                    <li>
+                                        Select the specific class using the calendar function in the top right hand
+                                        corner
+                                        and then scrolling down to the class.
+                                    </li>
+                                    <li>
+                                        Click on the ‘Cancel’ button to the right of the class that you wish to cancel.
+                                    </li>
+                                    <li>
+                                        Clients who have booked into the class will automatically be sent an email
+                                        notifying them that the class has been cancelled. The class will no longer
+                                        appear on
+                                        the Fitopia app nor on Mindbody.
+                                    </li>
+                                </ol>
+                                <div class="callout-block callout-danger">
+                                    <div class="icon-holder">
+                                        {#                                        <i class="fa fa-info-circle"></i>#}
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                        {#                                        <i class="fa fa-bug"></i>#}
+                                        {#                                        <i class="fa fa-thumbs-up"></i>#}
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            Classes need to be cancelled in Mindbody before cancelling it in the
+                                            studio
+                                            portal. If a class is not cancelled in Mindbody and you try to cancel it in
+                                            Fitopia
+                                            the
+                                            class won’t be cancelled in either. A message will appear to alert the
+                                            studio to
+                                            cancel
+                                            in Mindbody before cancelling in Fitopia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="manage-section">
+                            <h2 class="section-title">Manage</h2>
+
+                            <div class="section-block">
+                                <p>
+                                   <strong> How can we manage external credits/ visits?</strong>
+
+                                <p>
+                                    You can manage the total number of external credits/ visits applicable to a Pricing
+                                    Option and the number of times an individual can visit each studio by following the
+                                    steps below.
+                                </p>
+
+                                <ol>
+                                    <li>
+                                        Select &#39;MANAGE&#39; in the top menu and scroll and click on &#39;External
+                                        Credits&#39;.
+                                    </li>
+                                    <li>
+                                        Using the ‘+’ and ‘-‘ buttons in the ‘External Credits’ and ‘Max Per Studio’
+                                        columns
+                                        set the total number of external classes someone can attend (across all studios)
+                                        and
+                                        the maximum number of classes someone can attend per studio.
+                                    </li>
+                                    <li>
+                                        These can be customised for each pricing option
+                                    </li>
+                                    <li>
+                                        Click the green &#39;Update&#39; button to update the system.
+                                    </li>
+                                </ol>
+
+                                <div class="callout-block callout-info">
+                                    <div class="icon-holder">
+                                        {#                                        <i class="fa fa-info-circle"></i>#}
+                                        <i class="fa fa-info-circle"></i>
+                                        {#                                        <i class="fa fa-bug"></i>#}
+                                        {#                                        <i class="fa fa-thumbs-up"></i>#}
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            The pricing options listed are passport memberships that have been
+                                            integrated
+                                            with
+                                            the
+
+                                            Fitopia app. In order to add a new pricing option please confirm the exact
+                                            name
+                                            (including
+
+                                            the use of upper and lower case and any spaces) of the pricing option to
+                                            hello@fitopia.co.uk
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                                <p>
+                                    <strong>How can we manage which external studios our members can go to for a Pricing Option?</strong>
+
+                                <ol>
+                                    <li>
+                                        Select &#39;MANAGE&#39; in the top menu and scroll and click on &#39;External
+                                        Studios&#39;.
+                                    </li>
+                                    <li>
+                                        Click on the &#34;Permitted&#34; studios icon.
+                                    </li>
+                                    <li>
+                                        Scroll through the list of participating studios in the pop up window and select or deselect external studios as appropriate.
+                                        Nb. All participating external studios will be listed on this page.
+                                    </li>
+                                    <li>
+                                        Click on the &#39;Done&#39; button on the bottom right corner of the pop up window to update the system.
+                                    </li>
+                                <li>
+                                    Repeat steps 2-4 for the next pricing options (as required).
+                                </li>
+                                </ol>
+                                <p>
+                                    Once an external studio is removed for a specific pricing option, clients that have purchased this
+                                    pricing option will not be able to view the
+                                    classes of this studio in the Fitopia app, and therefore will not be able to book classes there.
+                                </p>
+
+                                <div class="callout-block callout-info">
+                                    <div class="icon-holder">
+                                        {#                                        <i class="fa fa-info-circle"></i>#}
+                                        <i class="fa fa-info-circle"></i>
+                                        {#                                        <i class="fa fa-bug"></i>#}
+                                        {#                                        <i class="fa fa-thumbs-up"></i>#}
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            External studio classes which have already been booked by users before
+                                            removing an external studio from a price option will not be cancelled.
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <p>
+                                    You can remove and reactivate the pricing options that have been
+                                    added previously using the on/off switch.
+                                </p>
+                            </div>
+                        </section>
+                        <section id="account-section">
+                            <h2 class="section-title">Account</h2>
+
+                            <div class="section-block">
+                                <p>
+                                    <strong>How do we provide our Studio Account Details?</strong>
+                                </p>
+                                <ol>
+                                    <li>
+                                        Select ‘ACCOUNT’ from the main menu.
+                                    </li>
+                                    <li>
+                                        Enter bank details and ‘Save Changes’
+                                    </li>
+                                </ol>
+                                <p>
+                                    <strong>How can we change our passwords?</strong>
+                                </p>
+
+                                <p>
+                                    When a studio first registers with Fitopia the account will be created by Fitopia
+                                    support. After logging in for the first time, the password can then be changed by;
+                                </p>
+
+                                <ol>
+                                    <li>
+                                        Selecting ‘Account’ from the main menu
+                                    </li>
+                                    <li>
+                                        Enter your new password in the ‘Password’ section and then again beside ‘Confirm
+                                        Password’
+                                    </li>
+                                    <li>
+                                        Click ‘Change password’ to update the system.
+                                    </li>
+                                </ol>
+                                <div class="callout-block callout-info">
+                                    <div class="icon-holder">
+                                        {#                                        <i class="fa fa-info-circle"></i>#}
+                                        <i class="fa fa-info-circle"></i>
+                                        {#                                        <i class="fa fa-bug"></i>#}
+                                        {#                                        <i class="fa fa-thumbs-up"></i>#}
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            If multiple staff are required to access the portal please contact Fitopia
+                                            support.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="report-section">
+
+                            <h2 class="section-title">Report</h2>
+
+                            <div class="section-block">
+                                <p>
+                                    <strong>How do we run reports?</strong>
+                                </p>
+
+                                <p>
+                                    There are different reports that can be run from the portal.
+                                </p>
+                                <ol>
+                                    <li>
+                                        Internal
+                                    </li>
+                                    <li>
+                                        External
+                                    </li>
+                                </ol>
+                            </div>
+                            <div id="internal-report" class="section-block">
+                                <h4>Internal</h4>
+
+                                <p>
+                                    <strong>How do we view which classes our own members are attending at our studio?</strong>
+                                </p>
+
+                                <p>
+                                    Any reports pulled from the ‘Internal’ section will show the activity of your
+                                    studios members at your Studio.
+                                </p>
+                                <ol>
+                                    <li>
+                                        Select ‘REPORT’ in the top menu
+                                    </li>
+                                    <li>
+                                        Select ‘Internal’
+                                    </li>
+                                    <li>
+                                        In the main section you will see the fields; Email, First Name, Last Name,
+                                        Booking Date, Class, Name, Class Date
+                                    </li>
+                                    <li>
+                                        Using the two calendars at the top of the page you can choose the dates for
+                                        which you wish to run the report
+                                    </li>
+                                    <li>
+                                        Once you have the chosen dates, you can click on either CSV Download or PDF
+                                        Download depending on the format you wish the report to be run in
+                                    </li>
+                                    <li>
+                                        To ensure you are always running the latest report you can use the ‘refresh’
+                                        button at the top of the page
+                                    </li>
+                                </ol>
+                            </div>
+                            <div id="external-report" class="section-block">
+                                <h4>External</h4>
+
+                                <p>
+                                    <strong>There are two types of report that can be run;</strong>
+                                </p>
+                                <ol>
+                                    <li>
+                                        Activity of your studios members at external Studios ‘Out’
+                                    </li>
+                                    <li>
+                                        Activity of external members coming to your Studio ‘In’.
+                                    </li>
+                                </ol>
+                                <p>
+                                   <strong> How do I view where my Studio members are attending classes?</strong>
+                                </p>
+                                <ol>
+                                    <li>
+                                        Select ‘REPORT’ in the top menu
+                                    </li>
+                                    <li>
+                                        Select ‘External’
+                                    </li>
+                                    <li>
+                                        Move the mini tool bar ‘in/out’ to ‘OUT’
+                                    </li>
+                                    <li>
+                                        In the main section you will see the fields; Email, First Name, Last Name,
+                                        Booking Date, Class, Name, Class Date, Class Studio
+                                    </li>
+                                    <li>
+                                        Using the two calendars at the top of the page you can choose the dates for
+                                        which you wish to run the report
+                                    </li>
+                                    <li>
+                                        Once you have the chosen dates, you can click on either CSV Download or PDF
+                                        Download depending on the format you wish the report to be run in
+                                    </li>
+                                    <li>
+                                        To ensure you are always running the latest report you can use the ‘refresh’
+                                        button at the top of the page
+                                    </li>
+                                </ol>
+                                <p>
+                                   <strong> How do I view the activity of external members attending classes at our studio?</strong>
+                                </p>
+                                <ol>
+                                    <li>
+                                        Select ‘REPORT’ in the top menu
+                                    </li>
+                                    <li>
+                                        Select ‘External’
+                                    </li>
+                                    <li>
+                                        Move the mini tool bar ‘in/out’ to ‘IN’
+                                    </li>
+                                    <li>
+                                        In the main section you will see the fields; Email, First Name, Last Name,
+                                        Booking Date, Class, Name, Class Date, Class Studio
+                                    </li>
+                                    <li>
+                                        Using the two calendars at the top of the page you can choose the dates for
+                                        which you wish to run the report
+                                    </li>
+                                    <li>
+                                        Once you have the chosen dates, you can click on either CSV Download or PDF
+                                        Download depending on the format you wish the report to be run in
+                                    </li>
+                                    <li>
+                                        To ensure you are always running the latest report you can use the ‘refresh’
+                                        button at the top of the page
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="doc-sidebar hidden-xs">
+                    <nav id="doc-nav">
+                        <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                            <li>
+                                <a class="scrollto" href="#overview-section">Overview</a>
+                            </li>
+                            <li>
+                                <a class="scrollto" href="#class-section">Classes</a>
+                            </li>
+                            <li>
+                                <a class="scrollto" href="#manage-section">Manage</a>
+                            </li>
+                            <li>
+                                <a class="scrollto" href="#account-section">Account</a>
+                            </li>
+                            <li>
+                                <a class="scrollto" href="#report-section">Report</a>
+                                <ul class="nav doc-sub-menu">
+                                    <li>
+                                        <a class="scrollto" href="#internal-report">Internal</a>
+                                    </li>
+                                    <li>
+                                        <a class="scrollto" href="#external-report">External</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-muted small text-center">
+                        Contact Us <br>
+                        <i class="fa fa-phone"></i>
+                        020-7186-6020 <br>
+                        <i class="fa fa-envelope-o"></i>
+                        <a href="mailto:hello@fitopia.co.uk">hello@fitopia.co.uk</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+
+{% endblock footer %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/common/ajax-setup.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.0.0/angular-material.min.css' %}">
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.0.0/angular-material.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/accounts/user-guide.css' %}" type='text/css'>
+    <script type="text/javascript" src="{% static 'js/accounts/user-guide.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css' %}" type='text/css'>
+{% endblock script %}

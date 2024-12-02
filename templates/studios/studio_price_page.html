@@ -1,0 +1,82 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ email }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+    <div class="blue-container">
+        <nav class="sub-navbar sub-navbar-default sub-navbar-thin">
+            <div class="container">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="pull-left">
+                        Studio Pricing
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div style="padding-top: 75px"></div>
+        <div class="container">
+            <br><br><br>
+
+            <div class="panel-body">
+                <div class="row heading" ng-cloak>
+                    <div class="col-sm-10 col-xs-10 heading-font-style">
+                        <span>STUDIO NAME</span>
+                    </div>
+                    <div class="col-sm-2 col-xs-2 heading-font-style">
+                        <span>PRICE(£)</span>
+                    </div>
+                </div>
+                <div ng-controller="studioPriceCtrl">
+                    <div class="row user" ng-repeat="studio_price in studio_pricings">
+                        <div class="col-sm-9 col-xs-9">
+                            <h5>[[studio_price.studio.name]]</h5>
+                        </div>
+                        <div class="col-sm-3 col-xs-3 studio-price-field">
+                            <div  type="inputText" id="studio_price.id" price-input ng-model="model.studio_pricing" ng-init="model.studio_pricing=(studio_price.price|number:2)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+{% endblock footer %}
+{% block script %}
+    <script src="../../static/js/common/underscore-1.8.3/underscore-min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.0.0/angular-material.min.css' %}">
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.0.0/angular-material.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/studios/service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/studios/studioPrice.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/studios/studio-price.css' %}" type='text/css'>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+
+{% endblock script %}

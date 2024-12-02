@@ -1,0 +1,306 @@
+@font-face {
+    font-family: Lato;
+    src: url("../../fonts/Lato/fonts/Lato-Bold.woff");
+}
+
+body {
+    color: #4d4d4d;
+    font-size: 13px;
+    line-height: 26px;
+    padding-top: 0;
+}
+
+.navbar-inverse {
+    border-color: #88c1d8;
+}
+
+.navbar-nav {
+    padding-top: 0;
+}
+
+.testimonials {
+    background-color: #eee;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.center-title {
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.center-title .center-line {
+    background-color: #32c5d2;
+    display: block;
+    height: 3px;
+    margin: 0 auto 5px;
+    width: 40px;
+}
+
+.center-title h3 {
+    color: #000;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+/*.center-title p {*/
+    /*font-family: "sans-serif";*/
+    /*font-weight: 700;*/
+    /*margin-bottom: 0;*/
+    /*text-transform: uppercase;*/
+/*}*/
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    font-family: "sans-serif";
+}
+
+.testimonials .flexslider .flex-control-paging li a {
+    border-radius: 0;
+}
+
+a {
+    color: #32c5d2;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.testimonials .flexslider .flex-control-paging li a.flex-active {
+    background: #32c5d2 none repeat scroll 0 0;
+}
+
+.testimonials .flexslider img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+
+
+*::after, *::before {
+    box-sizing: border-box;
+}
+*::after, *::before {
+    box-sizing: border-box;
+}
+
+.space-10 {
+    margin-bottom: 10px;
+}
+
+.space-70 {
+    height: 70px;
+    width: 100%;
+}
+
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.form-control::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+body {
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+html {
+    font-size: 10px;
+}
+html {
+    font-family: sans-serif;
+}
+
+.flexslider .slides img {
+    width: 128px;
+    height: 128px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.flexslider {
+    background-color: #eee;
+    border-color: #eee;
+}
+
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
+.studio-usp-box .icon-left {
+    border-radius: 50%;
+    color: #09c4f2;
+    float: left;
+    font-size: 25px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 20px;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    width: 60px;
+}
+
+.studio-usp-box .text-content {
+    overflow: hidden;
+}
+
+.studio-usp-box:hover .icon-left {
+    background-color: #09c4f2;
+    color: #fff;
+}
+
+.studio-usp-box .text-content h3 {
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Lato,sans-serif;
+    letter-spacing: 0;
+    margin-top: 0;
+}
+
+.studio-usp-box .text-content p {
+    color: #666;
+    text-align: justify;
+}
+
+.studio-usp-box {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.copyright {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.header {
+    /*background: rgba(0, 0, 0, 0) url("../../images/bg-1.jpg") no-repeat fixed 0 0 / cover ;*/
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/bg-1.jpg") no-repeat fixed 0 0 / cover ;
+    padding: 210px 0;
+}
+
+.header-text h1 {
+    font-family: Lato, sans-serif;
+    color: #fff;
+    font-size: 45px;
+}
+
+.header-text h2 {
+    font-family: Lato, sans-serif;
+    color: #fff;
+}
+
+.header-text h3 {
+    font-family: Lato, sans-serif;
+    color: #fff;
+}
+
+.header-logo {
+    width: 226px;
+    height: 189px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    border-radius: 10%;
+}
+
+.navbar {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+/*//Add the below transitions to allow a smooth color change similar to lyft*/
+.navbar {
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+}
+
+.navbar.scrolled {
+    background: rgb(136, 193, 216); //IE
+    background: rgba(0, 0, 0, 0.78); //NON-IE
+}
+
+.partner-studios {
+    background-color: #333;
+}
+
+.partner-studios .col-sm-3 {
+    height: 160px;
+    /*background-color: #006dcc;*/
+    padding: 30px 10px;
+    /*border: solid 1px #FFFFFF;*/
+}
+
+.contact .center-line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.contact h2 {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.center-title p {
+    font-family: 'Merriweather', serif;
+}
+
+.contact p {
+    font-family: 'Merriweather', serif;
+}
+
+.center-title {
+    padding-bottom: 10px;
+}
+
+/*http://bootstraplovers.com/templates/assan-v2.4/one-page/index.html */
+/*http://wrapbootstrap.com/preview/WB0M13NT7*/
+/*http://wrapbootstrap.com/preview/WB02DSN1B*/
+/*http://wrapbootstrap.com/preview/WB05F069P*/
+/*https://wrapbootstrap.com/themes/page.2/sort.rank/order.asc*/
+
+/*http://bootstraplovers.com/templates/versa-v1.06/html/demo-business.html*/
+
+/*Slider*/
+/*http://www.myjqueryplugins.com/jquery-plugin/flexslider*/

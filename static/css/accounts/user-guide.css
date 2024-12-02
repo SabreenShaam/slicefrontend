@@ -1,0 +1,253 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 78px;
+}
+
+footer {
+    height: 40px;
+}
+
+.blue-container .container {
+    background-color: #FFFFFF;
+}
+
+.blue-container .panel {
+    box-shadow: none;
+    margin-left: 0;
+}
+
+.blue-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px;
+    padding-top: 40px;
+}
+
+
+
+.doc-body {
+    position: relative;
+}
+
+.doc-content {
+    margin-left: 220px;
+}
+
+.doc-sidebar {
+    width: 200px;
+}
+
+.affix-top {
+    position: absolute;
+    top: 0px;
+}
+
+.affix, .affix-bottom, .affix-top {
+    width: 220px;
+    padding-right: 20px;
+}
+
+.affix {
+    top: 100px;
+    position: fixed;
+}
+
+.affix-bottom {
+    position: absolute;
+}
+
+.doc-menu {
+    list-style: outside none none;
+    padding-left: 0;
+}
+
+.doc-menu > li > a {
+    border-left: 4px solid transparent;
+    color: #616670;
+    display: block;
+    padding: 5px 15px;
+}
+
+.body-green .doc-menu > li.active > a {
+    border-color: #75c181;
+    color: #75c181;
+}
+
+.doc-menu > li.active > a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-left: 4px solid #88c1d8;
+    color: #88c1d8;
+    font-weight: 600;
+}
+
+.doc-menu > li > a {
+    border-left: 4px solid transparent;
+    color: #616670;
+    display: block;
+    padding: 5px 15px;
+    background-color: #f4f7f9;
+}
+
+.doc-menu > li > a:focus {
+    background-color: transparent;
+}
+
+.doc-menu > li > a:hover {
+    /*color: #88c1d8;*/
+    border-left: 4px solid #616670;
+}
+
+.section-title {
+    border-bottom: 1px solid #d7d7d7;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    font-family: "Open Sans",arial,sans-serif;
+}
+.content-inner {
+    color: #494d55;
+}
+
+.section-block {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.blue-container .container {
+    background-color: #f4f7f9!important;
+}
+
+.section-block p {
+    line-height: 1.5;
+    font-family: "Open Sans",arial,sans-serif;
+    text-align: justify;
+}
+
+.section-block li {
+    font-family: "Open Sans",arial,sans-serif;
+}
+
+.callout-block {
+    background-clip: padding-box;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    padding: 30px;
+    position: relative;
+}
+
+.callout-info {
+    background: #58bbee none repeat scroll 0 0;
+    color: #fff;
+}
+
+.callout-danger {
+    background: #f77b6b none repeat scroll 0 0;
+    color: #fff;
+}
+
+.callout-success {
+    background: #75c181 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.callout-warning {
+    background: #f88c30 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.callout-block .icon-holder {
+    color: rgba(0, 0, 0, 0.25);
+    font-size: 30px;
+    left: 30px;
+    position: absolute;
+    top: 30px;
+}
+
+.callout-block .content {
+    margin-left: 60px;
+}
+
+.doc-sub-menu {
+    list-style: outside none none;
+    padding-left: 0;
+}
+
+.doc-sub-menu > li:first-child {
+    padding-top: 5px;
+}
+.doc-sub-menu > li {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.doc-sub-menu > li > a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #616670;
+    display: block;
+    padding: 0 0 0 34px;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.doc-sub-menu > li.active > a {
+    color: #88c1d8;
+}
+
+.doc-menu {
+    font-family: "Open Sans",arial,sans-serif;
+}
+
+.doc-header {
+    margin-top: -25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.doc-header .meta {
+    margin-top: -15px;
+    color: #a2a6af;
+}
+
+.doc-header a {
+    color: #a2a6af;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.blue-container {
+    margin-bottom: -95px;
+    padding-bottom: 105px;
+}
+
+footer a {
+    color: #777;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #88c1d8;
+}
+
+footer a:focus {
+    text-decoration: none;
+    color: #88c1d8;
+}
+p.condition{
+    text-align: justify;
+}
+
+md-toolbar *, md-toolbar *::after, md-toolbar *::before {
+    background: #88c1d8 none repeat scroll 0 0;
+    box-sizing: border-box;
+}
+
+
+/*body {*/
+    /*font-family: Lato;*/
+    /*padding-top: 78px !important;*/
+/*}*/

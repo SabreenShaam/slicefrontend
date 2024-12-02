@@ -1,0 +1,170 @@
+{% extends 'common/base_navbar.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block studioname %}
+    {% if request.user.is_authenticated %}
+        <div class="studio-greeting navbar-text">Welcome, {{ email }}!</div>
+    {% endif %}
+{% endblock studioname %}
+
+{% block content %}
+    <div class="blue-container" ng-controller="studioBookingsCtrl as ctrl" ng-init="init('{{ studio }}')" ng-cloak>
+        <nav class="sub-navbar sub-navbar-default sub-navbar-thin booking-sub-navbar">
+            <div class="container">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="pull-left">
+                        Internal Bookings
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right" ng-cloak>
+                    <li class="date-range-li" ng-cloak>
+                        <md-datepicker ng-model="start_date" ng-change="onStartDateChange()"
+                                       md-placeholder="Start date"
+                                       md-hide-icons="triangle" md-min-date="startMinDate" md-max-date="startMaxDate"
+                                       ng-cloak>
+                        </md-datepicker>
+
+
+                        <md-datepicker ng-model="end_date" ng-change="onEndDateChange()" md-placeholder="End date"
+                                       md-hide-icons="triangle" md-min-date="endMinDate" md-max-date="endMaxDate"
+                                       ng-cloak></md-datepicker>
+                        <i class="fa fa-refresh refresh-icon" style="font-size:24px" aria-hidden="true"
+                           ng-click="Search('{{ studio }}')">
+                            <md-tooltip md-direction="down" ng-cloak>Refresh</md-tooltip>
+                        </i>
+
+                    </li>
+                    <li class="download-icon rm-focus-outline"
+                        ng-click='downloadCSV({ filename:"Page" + ctrl.pager.currentPage + "booking-data.csv" })'
+                        ng-show="bookings.length">
+                        <i class="fa fa-file-text" style="font-size:24px">
+                            <md-tooltip md-direction="down" ng-cloak>
+                                CSV Download
+                            </md-tooltip>
+                        </i>
+                    </li>
+                    <li class="download-icon rm-focus-outline"
+                        ng-click='downloadPdf({ filename:"Page" + ctrl.pager.currentPage + "booking-data.pdf", page:ctrl.pager.currentPage, type:"in" })'
+                        ng-show="bookings.length">
+                        <i class="fa fa-file-pdf-o" style="font-size:24px">
+                            <md-tooltip md-direction="down" ng-cloak>
+                                PDF Download
+                            </md-tooltip>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div style="padding-top: 75px"></div>
+        <div class="text-muted empty-message" ng-hide="bookings.length" aria-hidden="false">
+            <h4>No bookings found!</h4>
+        </div>
+        <div ng-show="activated" ng-model="activated" class="center-element">
+            <md-progress-circular ng-disabled="False" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div class="container internal-booking-container" ng-show="bookings.length">
+            <div class="bookings-pagination pull-right" ng-hide="ctrl.pager.totalPages == 1">
+                <nav aria-label="Page navigation">
+                    <ul ng-if="ctrl.pager.pages.length" class="pagination pagination-sm">
+                        <li ng-show="ctrl.pager.totalPages > 5" ng-class="{disabled:ctrl.pager.currentPage === 1}">
+                            <a ng-click="ctrl.setPage(1)">
+                                <span>First</span>
+                            </a>
+                        </li>
+                        <li ng-class="{disabled:ctrl.pager.currentPage === 1}">
+                            <a ng-click="ctrl.setPage(ctrl.pager.currentPage - 1)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li ng-repeat="page in ctrl.pager.pages" ng-class="{active:ctrl.pager.currentPage === page}">
+                            <a ng-click="ctrl.setPage(page)">
+                                [[page]]
+                            </a>
+                        </li>
+                        <li ng-class="{disabled:ctrl.pager.currentPage === ctrl.pager.totalPages}">
+                            <a ng-click="ctrl.setPage(ctrl.pager.currentPage + 1)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li ng-show="ctrl.pager.totalPages > 5"
+                            ng-class="{disabled:ctrl.pager.currentPage === ctrl.pager.totalPages}">
+                            <a ng-click="ctrl.setPage(ctrl.pager.totalPages)">
+                                <span>Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="pull-right" style="margin: 27px 5px; font-size: 12px">
+                <span>[[ctrl.pager.startIndex]]  - [[ctrl.pager.endIndex]] of [[ctrl.pager.totalItems]]</span>
+            </div>
+            <br><br><br>
+
+            <div class="table-div" id="booking_tbl">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Booking date</th>
+                        <th>Class Name</th>
+                        <th>Class Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="booking in bookings">
+                        <td>[[booking.email]]</td>
+                        <td>[[booking.first_name]]</td>
+                        <td>[[booking.last_name]]</td>
+                        <td>[[booking.booking_date]]</td>
+                        <td>[[booking.class_name]]</td>
+                        <td>[[booking.class_start_date]]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" ng-controller="footerCtrl">
+                    <p class="copyright text-muted small">
+                        © 2016 Fitopia London
+                        <a class="pull-right" role="button" ng-click="showAdvanced($event)">Terms and Conditions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div ng-hide="true">
+        {% include 'common/terms_and_condition.html' %}
+    </div>
+{% endblock footer %}
+
+{% block script %}
+    <script src="{% static 'js/common/underscore-1.8.3/underscore-min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-animate.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-aria.min.js' %}"></script>
+    <script src="{% static 'js/common/angularjs-1.5.6/angular-messages.min.js' %}"></script>
+    <script src="{% static 'js/common/angular_material-1.1.1/angular-material.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'app/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/jspdf.debug.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bookings/bookings.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/bookings/service.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/bookings/studioBookingsCtrl.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common/terms.js' %}"></script>
+    <link rel='stylesheet' href="{% static 'css/common/terms.css' %}" type='text/css'>
+
+    <link rel="stylesheet" href="{% static 'css/common/angular_material-1.1.1/angular-material.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel='stylesheet' href="{% static 'css/bookings/bookings.css' %}" type='text/css'>
+{% endblock script %}

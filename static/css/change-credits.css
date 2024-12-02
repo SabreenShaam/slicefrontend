@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 78px;
+}
+
+footer {
+    height: 40px;
+}
+
+.blue-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px;
+}
+
+.inset {
+    padding: 0px !important;
+    margin: 10px;
+}
+
+.alert {
+    margin-bottom: 0px;
+}
+
+md-dialog {
+    min-width: 500px;
+}
+
+md-checkbox {
+    margin-bottom: 0;
+    padding-bottom: 8.5397px;
+    padding-top: 8px;
+}
+
+.access-item > .col-sm-9 {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.access-item:nth-child(odd) > div {
+    /*background-color: #CCC;*/
+    background-color: #e0e0e0;
+    height: 35px;
+}
+
+.studio-access-list .heading div {
+    border-bottom: solid #e0e0e0 2px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.center-item {
+    display: table;
+    margin: 0 auto;
+    float: right;
+!important;
+
+}
+
+md-switch {
+    -moz-user-select: none;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    line-height: 28px;
+    margin-bottom: 16px;
+    margin-left: inherit;
+    margin-right: 16px;
+    margin-top: 8px;
+    outline: 0 none;
+    white-space: nowrap;
+}
+
+.btn-update:focus {
+    outline: none !important;
+}
+
+.alert-danger {
+    position: fixed;
+    top: 95px;
+    right: 50px;
+    z-index: 8;
+    background-color: #ff0000;
+    color: #fff;
+}
